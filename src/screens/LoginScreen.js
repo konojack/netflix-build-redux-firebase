@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './LoginScreen.css';
+import './LoginScreen.scss';
 import SignupScreen from './SignupScreen';
 
 const LoginScreen = () => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import useFetchingQuery from './hooks/useFetchingQuery';
-import './Row.css';
+import './Row.scss';
 
 const Row = ({ title, fetchUrl, isLargeRow = false }) => {
   const [movies] = useFetchingQuery(fetchUrl);

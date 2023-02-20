@@ -1,5 +1,5 @@
 import requests from './Requests';
-import './Banner.css';
+import './Banner.scss';
 import useFetchingQuery from './hooks/useFetchingQuery';
 
 const Banner = () => {
