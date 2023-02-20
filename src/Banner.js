@@ -1,25 +1,9 @@
-import axios from './axios';
 import requests from './Requests';
-import { useEffect, useState } from 'react';
 import './Banner.css';
+import useFetchingQuery from './hooks/useFetchingQuery';
 
 const Banner = () => {
-  const [movie, setMovie] = useState([]);
-
-  useEffect(() => {
-    async function fetchData() {
-      const request = await axios.get(requests.fetchNetflixOriginals);
-      setMovie(
-        request.data.results[
-          Math.floor(Math.random() * request.data.results.length - 1)
-        ]
-      );
-
-      return request;
-    }
-
-    fetchData();
-  }, []);
+  const [movie] = useFetchingQuery(requests.fetchNetflixOriginals, true);
 
   const truncate = (string, numberOfCharsFromCut) => {
     return string?.length > numberOfCharsFromCut
@@ -33,7 +17,7 @@ const Banner = () => {
       style={{
         backgroundSize: 'cover',
         // backgroundImage: 'url(./netflix-banner.png)',
-        backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}"`,
+        backgroundImage: `url("${process.env.REACT_APP_TMDB_IMAGE_BASE_URL}/${movie?.backdrop_path}"`,
         backgroundPosition: 'center center',
       }}
     >
