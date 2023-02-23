@@ -5,7 +5,7 @@ import SignupScreen from './SignupScreen';
 const LoginScreen = () => {
   const [signIn, setSignIn] = useState(false);
 
-  const handleSignup = (e) => {
+  const handleSignin = (e) => {
     e.preventDefault();
     setSignIn(true);
   };
@@ -18,7 +18,9 @@ const LoginScreen = () => {
           alt="logo"
           className="loginScreen__logo"
         />
-        <button className="loginScreen__button">Sign In</button>
+        <button className="loginScreen__button" onClick={handleSignin}>
+          Sign In
+        </button>
 
         <div className="loginScreen__gradient"></div>
       </div>
@@ -37,12 +39,7 @@ const LoginScreen = () => {
             <div className="loginScreen__input">
               <form>
                 <input type="email" placeholder="Email Address" />
-                <button
-                  onClick={handleSignup}
-                  className="loginScreen__getStarted"
-                >
-                  GET STARTED
-                </button>
+                <button className="loginScreen__getStarted">GET STARTED</button>
               </form>
             </div>
           </>
